@@ -14,6 +14,10 @@ describe(`Function 'validateEmail':`, () => {
   });
 
   it(`valid email with digits`, () => {
+    expect(validateEmail("test@mail.com")).toBe(true);
+  });
+
+  it(`valid email with digits`, () => {
     expect(validateEmail("test838@mail.com")).toBeTruthy();
   });
 
