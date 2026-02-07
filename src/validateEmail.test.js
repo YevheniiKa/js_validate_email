@@ -29,6 +29,10 @@ describe(`Function 'validateEmail':`, () => {
     expect(validateEmail("t@q.c")).toBeTruthy();
   });
 
+  it(`valid email with dot "." in personal_info`, () => {
+    expect(validateEmail("test.email@test.com")).toBeTruthy();
+  });
+
   it(`not-valid email with not allowed chars like "! $ % & ' * + / = ? ^ { | } ~"`, () => {
     expect(validateEmail("t$est!t&#w=o@gmail.com")).toBeFalsy();
   });
@@ -51,6 +55,10 @@ describe(`Function 'validateEmail':`, () => {
 
   it(`not-valid email where personal_info start from dot "."`, () => {
     expect(validateEmail(".test@gmail.com")).toBeFalsy();
+  });
+
+  it(`not-valid email where personal_info ends with "."`, () => {
+    expect(validateEmail("test.@gmail.com")).toBeFalsy();
   });
 
   it(`not-valid email where domain start from dot "."`, () => {
